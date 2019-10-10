@@ -67,7 +67,7 @@ def get_computer_move(board, computer_letter, player_letter):
             make_move(copy, player_letter, i)
             if is_won(copy, player_letter):
                 return i
-                                                               # 稍稍一改，不好赢
+                                                               # 稍稍改动
     move = get_random_move_from_the_list(board, [1, 3, 7, 9])
     if move != None:
         return move
@@ -78,7 +78,7 @@ def get_computer_move(board, computer_letter, player_letter):
     
 def is_full(board):
     for i in range(1, 10):
-        if is_space_free(board, i):             # 只有有空，就没满
+        if is_space_free(board, i):             # 有空处
             return False
     return True
 
