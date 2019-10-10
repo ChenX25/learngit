@@ -7,11 +7,11 @@ import random
 
 def draw_board(board):          # 设计棋盘样式
     print()
-    print(' %s | %s | %s ' % (board[7], board[8], board[9]))
-    print('---+---+---')
-    print(' %s | %s | %s ' % (board[4], board[5], board[6]))
-    print('---+---+---')
-    print(' %s | %s | %s ' % (board[1], board[2], board[3]))
+    print('\t %s | %s | %s ' % (board[7], board[8], board[9]))
+    print('\t---+---+---')
+    print('\t %s | %s | %s ' % (board[4], board[5], board[6]))
+    print('\t---+---+---')
+    print('\t %s | %s | %s ' % (board[1], board[2], board[3]))
     print()
     print('-' * 30)
 
@@ -119,10 +119,12 @@ def main():
                 make_move(board, player_letter, move)
                 
                 if is_won(board, player_letter):
+                    draw_board(board)
                     print('恭喜玩家赢得胜利，太棒了！！！！')
                     game_is_playing = False
                 else:
                     if is_full(board):
+                        draw_board(board)
                         print('该局为平局....')
                         break
                     else:
@@ -132,10 +134,12 @@ def main():
                 move = get_computer_move(board, computer_letter, player_letter)
                 make_move(board, computer_letter, move)
                 if is_won(board, computer_letter):
+                    draw_board(board)
                     print('对手获胜，你..输了')
                     game_is_playing = False
                 else:
                     if is_full(board):
+                        draw_board(board)
                         print('该局为平局....')
                         break
                     else:
