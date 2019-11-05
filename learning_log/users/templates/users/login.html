@@ -1,0 +1,20 @@
+{% extends 'html/base.html' %}
+
+{% block content %}
+  <style type='text/css'>
+    form input,textarea,button {
+      font-size: 16px;
+    }
+  </style>
+  
+  {% if form.errors %}
+  <p>用户名与密码不匹配，请重试。</p>
+  {% endif %}
+
+  <form method='post' action="{% url 'users:login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name='submit'>登录</button>
+    <input type='hidden' name='next' value="{% url 'learning_logs:index' %}" />
+  </form>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'html/base.html' %}
+
+{% block content %}
+<style type='text/css'>
+  ul li p{
+    font-size: 20px;
+    background-color: rgb(200, 240, 200);
+    padding: 1px 10px;
+    margin: 1px;
+  }
+  ul li p.date {
+    background-color: rgb(20, 150, 200);
+  }
+  ul li {
+    margin: 15px;
+  }
+</style>
+
+
+  <p>主题: {{ topic }}</p>
+
+  <p>日志:</p>
+  <p>
+    <a href="{% url 'learning_logs:new_entry' topic.id %}">添加日志</a>
+  </p>
+
+  <ul>
+    {% for entry in entries %}
+    <li>
+      <p class='date'>{{ entry.date_added|date:'M d, Y H:i' }}</p>
+      <p>{{ entry.text|linebreaks }}</p>
+      <p>
+        <a href="{% url 'learning_logs:edit_entry' entry.id %}">编辑日志</a>
+      </p>
+
+    </li>
+    {% empty %}
+    <li>
+      目前一片荒芜—————
+    </li>
+    {% endfor %}
+  </ul>
+
+  {% endblock %}

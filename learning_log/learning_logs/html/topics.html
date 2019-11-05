@@ -1,0 +1,15 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+  <h3>全部主题</h3>
+    <ol>
+      {% for topic in topics %}
+        <li><h3><a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a></h3></li>
+      {% empty %}
+        <li>No topics have been added yet.</li>
+      {% endfor %}
+    </ol>
+
+    <a href="{% url 'learning_logs:new_topic' %}">添加新主题</a>
+
+{% endblock %}

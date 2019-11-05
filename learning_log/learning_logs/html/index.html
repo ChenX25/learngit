@@ -1,0 +1,22 @@
+{% extends "html/base.html" %}
+    
+
+{% block content %}
+  <p>忘记了啥？赶紧记下来。</p>
+  <p>想起了啥？赶紧记下来。</p>
+
+  <p>
+    <br />
+    <br />
+    >>>
+    <a href="{% url 'learning_logs:topics' %}">主题</a>
+    <br>
+    >>> 注册个人账号后，就可以写学习日志咯。
+    <br>
+    >>> 最近有长进?! 趁着新鲜，赶紧腌了。
+    <br>
+    <br>
+    <img src='/../static/index.jpg' alt='一张图' height='450px' width='750px' />
+  </p>
+
+{% endblock %}

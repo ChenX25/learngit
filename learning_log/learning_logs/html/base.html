@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Learning Log</title>
+    
+    {% load staticfiles %}
+      <link rel='shortcut icon' href="{% static '/../static/favicon.ico' %}" />
+    <link rel='stylesheet' type='text/css' href='/../static/base.css' />
+    
+  </head>
+
+  <body>
+    <div id='header'>
+
+      <h2>  
+        <a href="{% url 'learning_logs:index' %}"><strong>学:有所思</strong></a>
+      </h2>
+
+      <div class='nav'>
+          <a href="{% url 'learning_logs:topics' %}">主题</a>
+          {% if user.is_authenticated %}
+            欢迎登录，{{ user.username }}
+            <a href="{% url 'users:logout' %}">注销</a>
+          {% else %}
+            <a href="{% url 'users:register' %}">注册</a>
+            <a href="{% url 'users:login' %}">登录</a>
+          {% endif %}
+      </div>
+      
+    </div>
+
+    <div id='aside'>
+      
+        <h2>Tips</h2>
+        <ol>
+          <li>笔记，留下了曾经的足迹</li>
+          <li>阅读，从兴趣开始</li>
+          <li>灵感，总是在不时的迟疑中擦肩而过</li>
+          <li>对话，需要相互理解</li>
+          <li>一步又一步，自然而然</li>
+        </ol>
+  
+        <p>PS:</p>
+        <p>认识自己 —— </p>
+        <p>未知的领域，未知的自己</p>
+        
+    </div>
+
+    <div id='section'>
+
+      {% block content %}{% endblock %}
+
+    </div>
+
+    
+
+    <div id='footer'>
+      <p>欢迎来到“学:有所思”。</p>
+    </div>
+    
+  </body>
+</html>
